@@ -21,6 +21,7 @@ public class MyThread extends Thread {
 
         ServerSocket ss = new ServerSocket(3000);
 
+        do{
         Socket s = ss.accept();
 
         System.out.println("Qualcuno si è collegato");
@@ -33,9 +34,8 @@ public class MyThread extends Thread {
 
         String stringaMaiuscola = stringaRicevuta.toUpperCase();
         out.writeBytes(stringaMaiuscola + '\n');
-
-        s.close();
-        ss.close();
+        } while(true);
+        
         } catch (Exception e){
             System.out.println("errore");
         }
